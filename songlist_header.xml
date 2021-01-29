@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff000000">
+<!--     xmlns:support="http://schemas.android.com/tools" -->
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/linen" >
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/spacer"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dip"
+        android:layout_below="@id/toolbar"
+        android:textSize="8.0sp" />
+
+
+    <RelativeLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    
+    	<LinearLayout
+            style="@style/ButtonBar"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:orientation="horizontal" 
+    		android:background="#000000" >
+    
+   			<Button
+	        	android:id="@+id/delete_button"
+       			style="@style/ButtonBarButton"
+		        android:textAllCaps="false"
+                android:layout_margin="1dp"
+        		android:layout_width="0dp"
+        		android:layout_weight="1"
+        		android:layout_height="wrap_content"
+                android:textColor="@drawable/text_state"
+                android:background="@drawable/background_state"
+        		android:text="@string/delete_label"/>
+    
+
+		</LinearLayout>
+	</RelativeLayout>
+
+	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spacer"
+        android:layout_above="@id/bottom_buttons">
+		
+    	<com.modelsw.loadingassetfiles.IndexedListView
+        	android:id="@+id/list"
+        	android:layout_height="wrap_content"
+        	android:layout_width="match_parent" />
+    
+    </RelativeLayout>
+</RelativeLayout>

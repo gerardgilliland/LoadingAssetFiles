@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    android:background="@color/black"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/linen" >
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/spacer"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dip"
+        android:layout_below="@id/toolbar"
+        android:textSize="8.0sp" />
+
+    <TextView
+        android:id="@+id/select_path_label"
+        android:text="@string/selectpath_label"
+        android:gravity="start"
+        android:textColor="@color/linen"
+        android:layout_marginLeft="3dip"
+        android:layout_marginRight="3dip"
+        android:layout_below="@id/spacer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:screenOrientation="portrait"
+        android:layout_below="@id/select_path_label"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+    <RadioGroup android:id="@+id/path_group"
+        android:layout_height="wrap_content"
+	    android:layout_width="fill_parent" 
+	    android:orientation="vertical">
+	    	     
+	    <RadioButton
+            android:id="@+id/path_1"
+            android:text="@string/path1_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:textColor="@color/linen"
+            />
+
+        <RadioButton
+            android:id="@+id/path_2"
+            android:text="@string/path2_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:textColor="@color/linen"
+            />
+
+        <RadioButton
+            android:id="@+id/path_4"
+            android:text="@string/path4_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:textColor="@color/linen"
+            />
+
+        <RadioButton
+            android:id="@+id/path_5"
+            android:text="@string/path5_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:textColor="@color/linen"
+            />
+
+
+
+    </RadioGroup>
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            style="@style/ButtonBar"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="#000000" >
+
+            <Button
+                android:id="@+id/load_now_button"
+                style="@style/ButtonBarButton"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:textColor="@drawable/text_state"
+                android:background="@drawable/background_state"
+                android:text="@string/load_now_lable"/>
+            <!-- android:layout_weight="1" -->
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>      
