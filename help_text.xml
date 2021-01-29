@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    android:background="#ff000000"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/linen" >
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    android:screenOrientation="portrait"
+        android:layout_below="@id/toolbar"
+        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+	    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:text="@string/helptext"
+        android:textColor="@color/linen"
+    	android:gravity="left"  /> 
+ <!--    
+    <Button 
+        android:id="@+id/closehelp_button"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/return_lable" />
+     -->
+</LinearLayout>   
+</ScrollView> 
+</RelativeLayout>    
