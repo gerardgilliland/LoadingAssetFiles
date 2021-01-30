@@ -1,0 +1,143 @@
+GradleScripts.txt
+
+************************
+build.gradle(Project: LoadingAssetFiles)
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+
+************************
+build.gradle(Project: LoadingAssetFiles.app)		
+apply plugin: 'com.android.application'
+
+android {
+
+    defaultConfig {
+        applicationId "com.modelsw.loadingassetfiles"
+        compileSdkVersion 30
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 3  // code version
+        versionName "3.A_V3"  // also in strings.xml
+        // DatabaseVersion 83 in Main -- not to be confused with IOC Birdlist 9.2
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+    dynamicFeatures = [':SongsNW', ':SongsOW']
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.play:core:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.annotation:annotation:1.1.0'
+}
+
+
+************************
+build.gradle(Project: LoadingAssetFiles.SongsNW)
+apply plugin: 'com.android.asset-pack'
+
+assetPack {
+    packName = "SongsNW" // Directory name for the asset pack
+    dynamicDelivery {
+        deliveryType = "on-demand"
+    }
+}
+
+
+************************
+build.gradle(Project: LoadingAssetFiles.SongsOW)
+apply plugin: 'com.android.asset-pack'
+
+assetPack {
+    packName = "SongsOW" // Directory name for the asset pack
+    dynamicDelivery {
+        deliveryType = "on-demand"
+    }
+}
+
+
+************************
+gradle-wrapper.properties (Gradle Version)
+#Sat Nov 28 20:39:11 MST 2020
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip
+
+
+************************
+gradle.properties (Project Properties)
+## Project-wide Gradle settings.
+#
+# For more details on how to configure your build environment visit
+# http://www.gradle.org/docs/current/userguide/build_environment.html
+#
+# Specifies the JVM arguments used for the daemon process.
+# The setting is particularly useful for tweaking memory settings.
+# Default value: -Xmx10248m -XX:MaxPermSize=256m
+# org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+#
+# When configured, Gradle will run in incubating parallel mode.
+# This option should only be used with decoupled projects. More details, visit
+# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+# org.gradle.parallel=true
+#Thu Oct 01 08:46:29 MDT 2015
+# org.gradle.jvmargs=-XX\:MaxHeapSize\=256m -Xmx256m
+org.gradle.jvmargs=-Xmx1024m
+android.useAndroidX=True
+
+
+************************
+settings.gradle (Project Settings)
+include ':app'
+include ':SongsNW'
+include ':SongsOW'
+
+
+************************
+local.properties (SDK Location)
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Tue Oct 02 10:18:12 MDT 2018
+sdk.dir=C\:......Sdk
+

@@ -1,0 +1,85 @@
+ProjectStructure.txt
+
+LoadingAssetFiles
+    app
+        manifests
+            AndroidManifest.xml
+        java
+            com
+                modelsw
+                    loadingassetfiles
+                        Alert1ButtonDialog
+                        Alert3ButtonDialog
+                        HelpActivity
+                        IndexedListView
+                        IndexedScroller
+                        LoadAssetPack
+                        Main
+                        SelectSongPath
+                        SongData
+                        SongList
+        assets
+            Define
+                BirdSongs.db
+            Song
+                American Robin XC171727.m4a
+        res
+            drawable
+                background_state.xml
+                ic_action_back
+                    ic_action_back.png (hdpi)
+                    ic_action_back.png (ldpi)
+                    ic_action_back.png (mdpi)
+                    ic_action_back.png (xhdpi)
+                text_state.xml
+                treble_clef_linen
+                    treble_clef_linen (hpdi)
+                    treble_clef_linen (lpdi)
+                    treble_clef_linen (mpdi)
+                    treble_clef_linen (xhpdi)
+            layout
+                alert_dialog1.xml
+                alert_dialog3.xml
+                help_text.xml
+                load_asset_pack.xml
+                main.xml
+                select_song_path.xml
+                song_list.xml
+                songlist_header.xml
+            menu
+                menu.xml
+            values
+                colors.xml
+                feature_names.xml
+                integer.xml
+                strings.xml
+                styles.xml
+    SongsNW
+        src
+            main
+                assets
+                    NW
+                        Acorn Woodpecker XC217710.m4a
+                        American Bushtit XC215759.m4a
+                        Yellow-legged Thrush XC82353.m4a
+                AndroidManifest.xml
+        build.gradle
+    SongsOW
+        src
+            main
+                assets
+                    OW
+                        Alpine Leaf Warbler XC144887.m4a
+                        Aquatic Warbler XC24870.m4a
+                        Wood Warbler XC112221.m4a
+                AndroidManifest.xml
+        build.gradle
+    GradleScripts
+        build.gradle(Project: LoadingAssetFiles)
+        build.gradle(Project: LoadingAssetFiles.app)        
+        build.gradle(Project: LoadingAssetFiles.SongsNW)
+        build.gradle(Project: LoadingAssetFiles.SongsOW)
+        gradle-wrapper.properties (Gradle Version)
+        gradle.properties (Project Properties)
+        settings.gradle (Project Settings)
+        local.properties (SDK Location)
