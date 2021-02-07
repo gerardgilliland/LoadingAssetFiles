@@ -127,23 +127,35 @@ public class SelectSongPath extends AppCompatActivity implements OnClickListener
                 //Main.songpath = Main.environment + "/" + getResources().getString(R.string.path4_location) + "/";
                 //Main.sharedDefine = Main.environment + "/" + getResources().getString(R.string.path4_define) + "/";
                 Main.path = 4;
+                Main.songpath = "";
                 Log.d(TAG, "path:" + Main.path);
                 Main.assetPackName = "SongsNW";
+                Main.assetPackLocation = "";
+                Main.assetPackLoaded = false;
                 Log.d(TAG, "before call assetPackName: SongsNW");
-                ap = new Intent(this, LoadAssetPack.class);
-                startActivity(ap);
+                loadap = new Intent(this, LoadAssetPack.class);
+                startActivity(loadap);
                 Log.d(TAG, "after call assetPackName Main.assetPackName: " + Main.assetPackName);
+                if (Main.assetPackLocation != "" && Main.assetPackLoaded == true) {
+                    Main.songpath = Main.environment + "/" + Main.assetPackLocation + "/";
+                }
                 break;
             case R.id.path_5:
                 //Main.songpath = Main.environment + "/" + getResources().getString(R.string.path5_location) + "/";
                 //Main.sharedDefine = Main.environment + "/" + getResources().getString(R.string.path5_define) + "/";
                 Main.path = 5;
+                Main.songpath = "";
                 Log.d(TAG, "path:" + Main.path);
                 Main.assetPackName = "SongsOW";
+                Main.assetPackLocation = "";
+                Main.assetPackLoaded = false;
                 Log.d(TAG, "before call assetPackName: SongsOW");
-                ap = new Intent(this, LoadAssetPack.class);
-                startActivity(ap);
+                loadap = new Intent(this, LoadAssetPack.class);
+                startActivity(loadap);
                 Log.d(TAG, "after call assetPackName Main.assetPackName: " + Main.assetPackName);
+                if (Main.assetPackLocation != "" && Main.assetPackLoaded == true) {
+                    Main.songpath = Main.environment + "/" + Main.assetPackLocation + "/";
+                }
                 break;
             case R.id.load_now_button:
                 if (path1.isChecked() == false) {
