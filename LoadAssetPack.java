@@ -74,40 +74,65 @@ public class LoadAssetPack extends AppCompatActivity {
         });
 
 
-        // **********    loadOnePack(); **** IS  ***** DISABLED ********************
-        //loadOnePack();
-        // **********    loadOnePack(); **** IS  ***** DISABLED ********************
+        Log.i(TAG, "before call loadOnePack");
+        loadOnePack();
+        Log.i(TAG, "after call loadOnePack");
 
     }
 
     // flow diagram
     // https://developer.android.com/guide/playcore/asset-delivery/integrate-java
 
-    // SECTION 2 -- FUNCTION TO LOAD ONE ASSET PACK -- DISABLED
-/* <-- DISABLED -- COMMENTED OUT
+    // SECTION 2
     public void loadOnePack() {
         long totalSize = 0;
         Log.i(TAG, "loadOnePack: " + apack);
 
-        assetPackManager.clearListeners();
         try {
-            String ap = assetPackLocation.getPackLocation(apack);
-            packLocation = findViewById(R.id.pack_location);
-            packLocation.setText(ap);
+            Log.i(TAG, "before clearListeners");
+            assetPackManager.clearListeners();
+            Log.i(TAG, "after clearListeners");
         } catch (Exception e) {
+            Log.i(TAG, "catch clearListeners error: " + e);
             e.printStackTrace();
+            finish();
         }
 
-        assetPackStates.getPackStates(Collections.singletonList(apack));
+        try {
+            Log.i(TAG, "before getPackLocation apack:" + apack);
+            String ap = assetPackLocation.getPackLocation(apack);
+            Log.i(TAG, "after getPackLocation ap: " + ap);
+            packLocation = findViewById(R.id.pack_location);
+            packLocation.setText(ap);
+            Log.i(TAG, "after setText on view");
+            Main.assetPackLocation = ap;
+            Log.i(TAG, "after set Main.assetPackLocation: " + Main.assetPackLocation);
+        } catch (Exception e) {
+            Log.i(TAG, "catch assetPackLocation error: " + e);
+            e.printStackTrace();
+            finish();
+        }
+
+        try {
+            Log.i(TAG, "before getPackStates apack:" + apack);
+            assetPackStates.getPackStates(Collections.singletonList(apack));
+            Log.i(TAG, "after getPackStates assetPackStates:" + assetPackStates);
+        } catch (Exception e) {
+            Log.i(TAG, "catch assetPackStates error: " + e);
+            e.printStackTrace();
+            finish();
+        }
+
         assetPackStateUpdateListener = new AssetPackStateUpdateListener() {
             void registerListener() {
+                Log.i(TAG, "registerListener");
             };
 
             @Override
             public void onStateUpdate(AssetPackState assetPackState) {
                 switch (assetPackState.status()) {
                     case AssetPackStatus.PENDING:
-                        Log.i(TAG, "Pending");
+                        Log.i(TAG, "AssetPackStatus PENDING");
                         break;
 
                     case AssetPackStatus.DOWNLOADING:
@@ -115,29 +140,34 @@ public class LoadAssetPack extends AppCompatActivity {
                         long totalSize = assetPackState.totalBytesToDownload();
                         double percent = 100.0 * downloaded / totalSize;
                         //percentCompletion = findViewById(R.id.percent_completion);
-                         
                         Log.i(TAG, "PercentDone=" + String.format("%.2f", percent));
                         break;
 
                     case AssetPackStatus.TRANSFERRING:
                         // 100% downloaded and assets are being transferred.
                         // Notify user to wait until transfer is complete.
+                        Log.i(TAG, "AssetPackStatus TRANSFERRING");
                         break;
 
                     case AssetPackStatus.COMPLETED:
                         // Asset pack is ready to use. Start the game.
+                        Main.assetPackLoaded = true;
+                        Log.i(TAG, "AssetPackStatus COMPLETED");
                         break;
 
                     case AssetPackStatus.FAILED:
                         // Request failed. Notify user.
+                        Log.i(TAG, "AssetPackStatus FAILED");
                         break;
 
                     case AssetPackStatus.CANCELED:
                         // Request canceled. Notify user.
+                        Log.i(TAG, "AssetPackStatus CANCELED");
                         break;
 
                     case AssetPackStatus.NOT_INSTALLED:
                         // Asset pack is not downloaded yet.
+                        Log.i(TAG, "AssetPackStatus NOT_INSTALLED");
                         break;
                 }
             }
@@ -149,7 +179,6 @@ public class LoadAssetPack extends AppCompatActivity {
         Log.i(TAG, "PercentDone=" + String.format("%.2f", percent));
 
     } // loadOnePack
-*/ // <-- END OF DISABLED SECTION 2
 
     // SECTION 3 -- MY INTERPRETATION OF ABSTRACT INTERFACE IN SECTION 4 -- CALLED FROM loadOnePack (SECTION 2) ABOVE
 
