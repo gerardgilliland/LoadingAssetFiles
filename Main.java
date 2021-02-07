@@ -3,6 +3,8 @@ package com.modelsw.loadingassetfiles;
  * 1.A_V1 -- Start with Birding Via Mic and off line remove files and rename BirdingViaMic to LoadingAssetFiles
  * 2.A_V2 -- Remove CSV Filter in NW and OW -- Causes different .abb
  * 3.A_V3 -- Put CSV Filter back in NW
+ * 4.A_V4 -- enable loadOnePack() in LoadAssetPack.java
+ * 5.A_V5 -- add try ... catch and log.i(TAG, ...) in several places in loadOnePack
  *
  */
 // CHECK build.gradle for the 4 items that need to be updated: 1)versionCode 2)versionName 3)versionName(in string) 4) DatabaseVersion (in Main)
@@ -67,6 +69,8 @@ public class Main extends AppCompatActivity implements OnClickListener {
 	public static String adjustViewOption; // AdjustView: clear, move, save, exclude, cancel, edit -- used in playSong, VisualizerView
 	public static int alertRequest = 0; // 2=delete files; 3=delete species; 4=delete web; 5=meta data info box; 6=database upgrade complete;
 	public static String assetPackName;  //
+	public static String assetPackLocation;  //
+	public static boolean assetPackLoaded;  //
 	public static short[] audioData;  // the entire song -- -32767 +32767 (16 bit)
 	public static int audioDataLength;  // the usable file length without overflows
 	public static int audioDataSeek;  // in playSong and decodeFile
